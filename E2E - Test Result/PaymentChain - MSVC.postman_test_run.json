@@ -1,0 +1,198 @@
+{
+	"id": "21e5ba06-1773-491e-89a7-838a310e49af",
+	"name": "PaymentChain - MSVC",
+	"timestamp": "2024-05-16T12:55:24.188Z",
+	"collection_id": "34427189-08745903-9711-4731-8d9e-8d25f470f958",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-05-16T12:55:22.938Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "262d0ab4-e96d-47dd-9dcc-f90c210ced8b",
+			"name": "POST product",
+			"url": "http://localhost:8083/product",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "085ab349-69d9-4b3b-802c-b93717670fb4",
+			"name": "POST Customer",
+			"url": "http://localhost:8081/customer",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				22
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "093f024a-d68b-4011-a170-157cc6ab112b",
+			"name": "POST transaction",
+			"url": "http://localhost:8082/transaction",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "08ec088b-e892-4030-95fb-53c38d292cdd",
+			"name": "GET Customer",
+			"url": "http://localhost:8081/customer",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d62f9753-9a46-4e4b-a6bc-779028fd4bbf",
+			"name": "GET Customer por ID",
+			"url": "http://localhost:8081/customer/1",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c11c131b-f357-40b4-a724-b2d4d55aeaa3",
+			"name": "GET product",
+			"url": "http://localhost:8083/product",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7074e7a5-f9d7-4417-b062-e95d5acd6510",
+			"name": "GET transaction",
+			"url": "http://localhost:8082/transaction",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "36ed967a-6b4b-405d-b1a1-a6c67f6a44d7",
+			"name": "GET Full",
+			"url": "http://localhost:8081/customer/full?code=01",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				71
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 189,
+	"collection": {
+		"requests": [
+			{
+				"id": "262d0ab4-e96d-47dd-9dcc-f90c210ced8b",
+				"method": "POST"
+			},
+			{
+				"id": "085ab349-69d9-4b3b-802c-b93717670fb4",
+				"method": "POST"
+			},
+			{
+				"id": "093f024a-d68b-4011-a170-157cc6ab112b",
+				"method": "POST"
+			},
+			{
+				"id": "08ec088b-e892-4030-95fb-53c38d292cdd",
+				"method": "GET"
+			},
+			{
+				"id": "d62f9753-9a46-4e4b-a6bc-779028fd4bbf",
+				"method": "GET"
+			},
+			{
+				"id": "c11c131b-f357-40b4-a724-b2d4d55aeaa3",
+				"method": "GET"
+			},
+			{
+				"id": "7074e7a5-f9d7-4417-b062-e95d5acd6510",
+				"method": "GET"
+			},
+			{
+				"id": "36ed967a-6b4b-405d-b1a1-a6c67f6a44d7",
+				"method": "GET"
+			}
+		]
+	}
+}
