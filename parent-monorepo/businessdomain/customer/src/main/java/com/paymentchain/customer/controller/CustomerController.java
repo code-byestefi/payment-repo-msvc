@@ -10,6 +10,8 @@ import io.netty.handler.codec.http.HttpClientCodec;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.http.*;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +31,16 @@ public class CustomerController {
     @Autowired
     CustomerRepository customerRepository;
 
+    /*
+    Lo pase al CustomerApplication.java ya que implemente un balanceador de cargas del lado del cliente
     private final WebClient.Builder webClientBuilder;
 
     public CustomerController(WebClient.Builder webClientBuilder) {
         this.webClientBuilder = webClientBuilder;
-    }
+    }*/
+
+    @Autowired
+    private WebClient.Builder webClientBuilder;
 
     //webClient requires HttpClient library to work propertly
     HttpClient client = HttpClient.create()
@@ -51,6 +58,13 @@ public class CustomerController {
                 connection.addHandlerLast(new WriteTimeoutHandler(5000, TimeUnit.MILLISECONDS));
             });
 
+    @Autowired
+    private Environment env;
+
+    @GetMapping("/check")
+    public String checkCustomer() {
+        return "Hello your property value is: " + env.getProperty("custom.activeprofileName");
+    }
 
 
     @GetMapping
@@ -113,9 +127,9 @@ public class CustomerController {
 
     private String getProductName(Long id) {
         WebClient build = webClientBuilder.clientConnector(new ReactorClientHttpConnector(client))
-                .baseUrl("http://localhost:8083/product")
+                .baseUrl("http://PRODUCT/product")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8083/product"))
+                .defaultUriVariables(Collections.singletonMap("url", "http://PRODUCT/product"))
                 .build();
         JsonNode block = build.method(HttpMethod.GET).uri("/" + id)
                 .retrieve().bodyToMono(JsonNode.class).block();
@@ -132,7 +146,7 @@ public class CustomerController {
      */
     private List<?> getTransactions(String iban) {
         WebClient build = webClientBuilder.clientConnector(new ReactorClientHttpConnector(client))
-                .baseUrl("http://localhost:8082/transaction")
+                .baseUrl("http://TRANSACTIONS/transaction")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
 
