@@ -11,6 +11,17 @@
 
     <name>billing</name>
     <description>Basic project for Spring Boot</description>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,6 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
+        <spring-boot-admin.version>3.2.3</spring-boot-admin.version>
     </properties>
 
     <dependencies>
@@ -64,6 +76,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>       
         </dependency>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
